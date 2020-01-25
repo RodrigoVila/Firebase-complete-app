@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import Notifications from "./Notifications";
 import ProjectList from "../projects/ProjectList";
 
-const { projects } = this.props;
+
 
 const Dashboard = props => {
+  const { projects } = props;
   return (
     <div className="dashboard container">
       <div className="row">
