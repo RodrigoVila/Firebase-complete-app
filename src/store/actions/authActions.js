@@ -1,8 +1,7 @@
-import firebase from 'firebase'
+import firebase from "firebase";
 
- const signIn = (credentials) => {
+export const signIn = credentials => {
   return (dispatch, getState) => {
-
     firebase
       .auth()
       .signInWithEmailAndPassword(credentials.email, credentials.password)
@@ -15,4 +14,13 @@ import firebase from 'firebase'
   };
 };
 
-export default signIn
+export const signOut = () => {
+  return (dispatch, getState) => {
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        dispatch({ type: "SIGN OUT_SUCCESS" });
+      });
+  };
+};
