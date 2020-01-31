@@ -1,7 +1,16 @@
-## React Redux Firebase App
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Project management tool with authentication and cloud functions.
+# General Info/Purpose 
+This application is a project planner, and where users can create an account, login, and post new projects to the application. The notifications component tracks new projects created, along with new users that create an account in the app. The theme of my app is Mario Bros. to give it some taste and creativeness. 
 
-Made with React, Redux and Firebase
+## URL
+You can checkout my deployed application using https://marioplanner-9cbe9.firebaseapp.com/. Any feedback is appreciated. 
 
-#### Site under construction...
+## Technologies
+* React.js
+* react-redux
+* Firebase
+
+### Author
+Ricky McConnell
+* https://www.linkedin.com/in/richard-mcconnell/

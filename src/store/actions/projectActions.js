@@ -1,20 +1,27 @@
-import { firestore } from '../../config/fbconfig'
-
 export const createProject = project => {
-  return (dispatch, getState, { getFireBase, getFireStore }) => {
+  return (dispatch, getState, { getFireBase, getFirestore }) => {
+    // make async call to database
+    const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const authorId = getState().firebase.auth.uid;
     firestore
       .collection("projects")
       .add({
         ...project,
-        authorFirstName: "Pepe",
-        authorLastName: "Sonico",
-        authorId: 123456,
+        authorFirstName: profile.firstName,
+        authorLastName: profile.lastName,
+        authorId: authorId,
         createdAt: new Date()
       })
       .then(() => {
         dispatch({ type: "CREATE_PROJECT", project });
-      }).catch((err) => {
-        dispatch({ type: 'CREATE_PROJECT_ERROR', err })
       })
+      .catch(err => {
+        dispatch({ type: "CREATE_PROJECT_ERROR" }, err);
+      });
   };
 };
+
+// export const deleteProject = id => {
+//   return (dispatch, getState, {})
+// };
